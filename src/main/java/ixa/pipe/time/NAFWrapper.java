@@ -9,6 +9,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -144,10 +145,20 @@ public class NAFWrapper{
 		
 		Date date = null;
 		try {
-			date = format.parse ( kaf.getFileDesc().creationtime );
-			ixa.kaflib.Timex3 time = kaf.newTimex3("DATE");
-			time.setValue(date.toString());
-			time.setFunctionInDocument("CREATION_TIME");
+		    String dct = kaf.getFileDesc().creationtime;
+		    Calendar cal = Calendar.getInstance();
+		    if ( dct != null){
+			date = format.parse(dct);
+			cal.setTime(date);
+		    }
+		    else{
+			date = cal.getTime();
+		    }
+		    ixa.kaflib.Timex3 time = kaf.newTimex3("DATE");
+		    String dctToString = getTimexFormat(cal);
+		    time.setValue(dctToString);
+		    time.setFunctionInDocument("CREATION_TIME");
+
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -266,4 +277,24 @@ public class NAFWrapper{
 		time.setSpan(KAFDocument.newWFSpan(wfSpan));
 	}
 	
+    private String getTimexFormat(Calendar cal){
+	String format = null;
+	
+	int year = cal.get(Calendar.YEAR);
+	format = Integer.toString(year) + "-";
+	int month = cal.get(Calendar.MONTH) + 1;
+	if (month < 10){
+	    format += Integer.toString(0);
+	}
+	format += Integer.toString(month) + "-";
+	int day = cal.get(Calendar.DAY_OF_MONTH);
+	if (day < 10){
+	    format += Integer.toString(0);
+	}
+	format += Integer.toString(day);
+	
+
+	return format;
+    }
+
 }

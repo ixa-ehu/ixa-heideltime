@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ixa.pipe</groupId>
   <artifactId>time</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <packaging>jar</packaging>
   <name>IXAPipeHeidelTime</name>
   <description>The module modifies the HeidelTime tool to provide with an already POS-tagged input text. HeidelTime is a multilingual cross-domain temporal tagger that extracts temporal expressions from documents and normalizes them according to the TIMEX3 annotation standard.</description>
@@ -98,7 +98,7 @@
     <dependency>
       <groupId>com.github.ixa-ehu</groupId>
       <artifactId>kaflib-naf</artifactId>
-      <version>1.0.0</version> <!-- Set the latest version here -->
+      <version>1.0.4</version> <!-- Set the latest version here -->
     </dependency>
     <dependency>
       <groupId>org.jdom</groupId>
