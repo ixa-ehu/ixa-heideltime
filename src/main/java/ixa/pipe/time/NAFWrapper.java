@@ -143,10 +143,12 @@ public class NAFWrapper{
 		//SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-ddThh:mm:ssz");
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 		
-		Date date = null;
+		//assign back-up value to date (will be overwritten by dct)
+		//kafnaflib can throw exception when no dct is given
+	    Calendar cal = Calendar.getInstance();
+		Date date = cal.getTime();
 		try {
 		    String dct = kaf.getFileDesc().creationtime;
-		    Calendar cal = Calendar.getInstance();
 		    if ( dct != null){
 			date = format.parse(dct);
 			cal.setTime(date);
