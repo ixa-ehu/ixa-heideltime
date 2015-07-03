@@ -269,11 +269,17 @@ public class NAFWrapper{
 		
 		List<WF> wfs = kaf.getWFsBySent(sentence);
 		List<WF> wfSpan = new ArrayList<WF>();
-		
 		for (WF wf:wfs){
 			int offset = wf.getOffset();
 			if (offset >= begin && offset < end){
 				wfSpan.add(wf);
+			}
+			else{
+				//check if the identified timex is a substring of the wf
+				int endoff = offset + wf.getLength();
+				if (offset < begin && endoff >= end){
+					wfSpan.add(wf);
+				}
 			}
 		}
 		time.setSpan(KAFDocument.newWFSpan(wfSpan));
