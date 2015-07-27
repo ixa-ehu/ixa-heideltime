@@ -43,7 +43,6 @@ import de.unihd.dbs.heideltime.standalone.components.ResultFormatter;
 import de.unihd.dbs.heideltime.standalone.components.impl.IntervalTaggerWrapper;
 import de.unihd.dbs.heideltime.standalone.components.impl.JCasFactoryImpl;
 import de.unihd.dbs.heideltime.standalone.components.impl.JVnTextProWrapper;
-import de.unihd.dbs.heideltime.standalone.components.impl.StanfordPOSTaggerWrapper;
 import de.unihd.dbs.heideltime.standalone.components.impl.TimeMLResultFormatter;
 import de.unihd.dbs.heideltime.standalone.components.impl.TreeTaggerWrapper;
 import de.unihd.dbs.heideltime.standalone.components.impl.UimaContextImpl;
