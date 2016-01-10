@@ -41,4 +41,4 @@ cat pos.naf | java -jar ${dirToJAR}/ixa.pipe.time.jar -m ${dirToFile}/eagles-to-
 License
 =======
 
-Apache v2. See LICENSE file for details.
+Apache v2. See LICENSE.txt for details.
