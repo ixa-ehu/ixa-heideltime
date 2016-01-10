@@ -38,4 +38,6 @@ move the jar file to the lib directory
 
 cat pos.naf | java -jar ${dirToJAR}/ixa.pipe.time.jar -m ${dirToFile}/eagles-to-treetager.csv -c ${dirToFile}/config.props
 
+License
 
+Apache v2. See LICENSE file for details.
