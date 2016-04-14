@@ -29,7 +29,7 @@ move the jar file to the lib directory
 
 => It will create the repo directory and two dependencies that you don't need to copy in the pom.xml file. It is necessary to run the scrip to correctly create the repo directory. Don't copy the anything in the pom file. 
 
-8.- Download the mappings file: http://ixa2.si.ehu.es/~jibalari/eagles-to-treetager.csv
+8.- Download the mappings file: http://ixa2.si.ehu.es/~jibalari/eagles-to-treetager.csv for processing Spanish or English. You will find the mappings file for Dutch (alpino-to-treetagger.csv) under lib/
 
 9.- Create the jar file for the time module
     mvn clean install
@@ -37,6 +37,10 @@ move the jar file to the lib directory
 10.- Test the module
 
 cat pos.naf | java -jar ${dirToJAR}/ixa.pipe.time.jar -m ${dirToFile}/eagles-to-treetager.csv -c ${dirToFile}/config.props
+
+for Dutch:
+
+cat pos.naf | java -jar ${dirToJAR}/ixa.pipe.time.jar -m ${dirToFile}/alpino-to-treetagger.csv -c ${dirToFile}/config.props
 
 License
 =======
